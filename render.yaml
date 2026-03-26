@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: barackconstruction
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: MAIL_USERNAME
+        value: josephkidenye@gmail.com
+      - key: MAIL_PASSWORD
+        value: fasq rpzf rzsn eeve
+      - key: MAIL_DEFAULT_SENDER
+        value: josephkidenye@gmail.com
+      - key: QUOTE_RECIPIENT
+        value: josephkidenye@gmail.com
+      - key: CONTACT_RECIPIENT
+        value: josephkidenye@gmail.com
+      - key: SECRET_KEY
+        value: barack-construction-2024-secret
