@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Premium Construction Company</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e67e22;
+            border-radius: 5px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1a2a3a;
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .top-bar a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: #e67e22;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e67e22 !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #2c3e50 !important;
+            transition: color 0.3s;
+            margin: 0 5px;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #e67e22;
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #e67e22 !important;
+        }
+
+        .btn-quote {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 700;
+            transition: all 0.3s;
+            margin-left: 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-quote:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(230,126,34,0.4);
+            color: white;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122') center/cover;
+            opacity: 0.1;
+        }
+
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 50px 0 30px;
+            background: #f8f9fa;
+        }
+
+        .filter-buttons {
+            text-align: center;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #e67e22;
+            color: #e67e22;
+            padding: 10px 25px;
+            margin: 5px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 80px 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            margin-bottom: 30px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-img {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-category {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e67e22;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 20px;
+            transition: bottom 0.4s;
+        }
+
+        .project-card:hover .project-overlay {
+            bottom: 0;
+        }
+
+        .project-overlay a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .project-location {
+            color: #e67e22;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .project-location i {
+            margin-right: 5px;
+        }
+
+        .project-desc {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: #e67e22;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .btn-project {
+            background: transparent;
+            border: 2px solid #e67e22;
+            color: #e67e22;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .btn-project:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        /* Featured Project Section */
+        .featured-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .featured-img {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-info {
+            padding: 40px;
+        }
+
+        .featured-badge {
+            background: #e67e22;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .featured-info h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .featured-info p {
+            color: #7f8c8d;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .btn-cta {
+            background: white;
+            color: #e67e22;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: #d35400;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a2a3a;
+            color: #ecf0f1;
+            padding-top: 70px;
+        }
+
+        .footer h4 {
+            color: #e67e22;
+            margin-bottom: 25px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            line-height: 1.8;
+            color: #bdc3c7;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #e67e22;
+            padding-left: 5px;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #bdc3c7;
+        }
+
+        .footer-contact i {
+            width: 30px;
+            color: #e67e22;
+            font-size: 18px;
+        }
+
+        .footer-bottom {
+            background: #0f1a24;
+            padding: 20px 0;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            .featured-info h2 {
+                font-size: 24px;
+            }
+
+            .featured-img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <i class="fas fa-phone-alt"></i> +254 700 057910 &nbsp;&nbsp;
+                <i class="fas fa-envelope"></i> josephkidenye@gmail.com
+            </div>
+            <div class="col-md-6 text-end">
+                <i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 6:00 PM
+                <div class="social-icons d-inline-block ms-3">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="main-nav navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-hard-hat"></i> PREMIUM CONSTRUCTIONS
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-quote" href="/quote">
+                        <i class="fas fa-calculator"></i> Get Free Quote
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container">
+        <h1 data-aos="fade-up">Our Projects</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Discover our portfolio of exceptional construction projects that showcase our expertise and commitment to quality</p>
+    </div>
+</div>
+
+<!-- Filter Section -->
+<div class="filter-section">
+    <div class="container">
+        <div class="filter-buttons" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+            <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            <button class="filter-btn" data-filter="renovation">Renovation</button>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Grid -->
+<div class="projects-section">
+    <div class="container">
+        <div class="row" id="projectsGrid">
+            <!-- Project 1 - Residential -->
+            <div class="col-lg-4 col-md-6" data-category="residential" data-aos="fade-up" data-aos-delay="0">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Luxury Villa">
+                        <span class="project-category">Residential</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Luxury Villa - Karen</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Karen, Nairobi</span>
+                        <p class="project-desc">A stunning 5-bedroom luxury villa with modern architecture, premium finishes, and smart home features.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">5,000 sq ft</span>
+                                <span class="stat-label">Area</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">12 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2023</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=luxury-villa" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 - Commercial -->
+            <div class="col-lg-4 col-md-6" data-category="commercial" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Westlands Business Park">
+                        <span class="project-category">Commercial</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Westlands Business Park</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Westlands, Nairobi</span>
+                        <p class="project-desc">A 15-story commercial complex with modern office spaces, conference facilities, and sustainable features.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">150,000 sq ft</span>
+                                <span class="stat-label">Area</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">24 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2024</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=westlands-business-park" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 - Infrastructure -->
+            <div class="col-lg-4 col-md-6" data-category="infrastructure" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364" alt="Thika Superhighway">
+                        <span class="project-category">Infrastructure</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Thika Superhighway Expansion</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Thika Road, Nairobi</span>
+                        <p class="project-desc">Major highway expansion project including 6 lanes, service roads, and modern drainage systems.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">50 km</span>
+                                <span class="stat-label">Length</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">18 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2023</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=thika-superhighway" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 - Renovation -->
+            <div class="col-lg-4 col-md-6" data-category="renovation" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="Nairobi Serena Hotel">
+                        <span class="project-category">Renovation</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Nairobi Serena Hotel Renovation</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Central, Nairobi</span>
+                        <p class="project-desc">Complete interior and exterior renovation of a luxury hotel including modern amenities and design.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">250 rooms</span>
+                                <span class="stat-label">Rooms</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">8 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2023</span>
+                                <span class="stat-label">Completed</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=nairobi-serena-hotel" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 - Residential -->
+            <div class="col-lg-4 col-md-6" data-category="residential" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="Runda Estate">
+                        <span class="project-category">Residential</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Runda Gated Community</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Runda, Nairobi</span>
+                        <p class="project-desc">A premium gated community with 50 luxury homes, clubhouse, and recreational facilities.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">50 units</span>
+                                <span class="stat-label">Homes</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">36 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2024</span>
+                                <span class="stat-label">Ongoing</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=runda-community" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 - Commercial -->
+            <div class="col-lg-4 col-md-6" data-category="commercial" data-aos="fade-up" data-aos-delay="500">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="Two Rivers Mall">
+                        <span class="project-category">Commercial</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Two Rivers Mall Extension</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Ruiru, Nairobi</span>
+                        <p class="project-desc">Major expansion of the largest shopping mall in East Africa with additional retail and entertainment space.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">200,000 sq ft</span>
+                                <span class="stat-label">Addition</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">14 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2024</span>
+                                <span class="stat-label">Ongoing</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=two-rivers-mall" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 - Infrastructure -->
+            <div class="col-lg-4 col-md-6" data-category="infrastructure" data-aos="fade-up" data-aos-delay="600">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2" alt="Mombasa Bridge">
+                        <span class="project-category">Infrastructure</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Mombasa Gateway Bridge</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Mombasa, Kenya</span>
+                        <p class="project-desc">A modern bridge connecting Mombasa Island to the mainland with improved traffic flow.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">1.2 km</span>
+                                <span class="stat-label">Length</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">30 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2025</span>
+                                <span class="stat-label">Planned</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=mombasa-bridge" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 - Renovation -->
+            <div class="col-lg-4 col-md-6" data-category="renovation" data-aos="fade-up" data-aos-delay="700">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6" alt="Kenyatta University">
+                        <span class="project-category">Renovation</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Kenyatta University Library</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Ruiru, Nairobi</span>
+                        <p class="project-desc">Complete modernization of the university library with digital infrastructure and study spaces.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">50,000 sq ft</span>
+                                <span class="stat-label">Area</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">12 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2024</span>
+                                <span class="stat-label">Ongoing</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=ku-library" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 - Residential -->
+            <div class="col-lg-4 col-md-6" data-category="residential" data-aos="fade-up" data-aos-delay="800">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914" alt="Garden City Apartments">
+                        <span class="project-category">Residential</span>
+                        <div class="project-overlay">
+                            <a href="#"><i class="fas fa-search-plus"></i> View Details</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Garden City Apartments</h3>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Thika Road, Nairobi</span>
+                        <p class="project-desc">Modern apartment complex with 200 units, swimming pool, gym, and landscaped gardens.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">200 units</span>
+                                <span class="stat-label">Apartments</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">24 months</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2024</span>
+                                <span class="stat-label">Ongoing</span>
+                            </div>
+                        </div>
+                        <a href="/quote?project=garden-city" class="btn-project">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Project Section -->
+<div class="featured-section">
+    <div class="container">
+        <div class="featured-card" data-aos="fade-up">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="featured-img">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5" alt="Featured Project">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="featured-info">
+                        <span class="featured-badge">Featured Project 2024</span>
+                        <h2>Signature Tower</h2>
+                        <p>Our flagship project - a 50-story mixed-use tower that will redefine Nairobi's skyline. Featuring sustainable design, smart building technology, and world-class amenities.</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>50 stories of premium office and residential space</li>
+                            <li>LEED Platinum certification target</li>
+                            <li>Smart building automation system</li>
+                            <li>Rooftop garden and observation deck</li>
+                            <li>Underground parking for 1,000 vehicles</li>
+                        </ul>
+                        <a href="/quote?project=signature-tower" class="btn-project">Request More Information →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+    <div class="container">
+        <h2 data-aos="fade-up">Have a Project in Mind?</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Let's bring your vision to life with our expert construction services</p>
+        <a href="/quote" class="btn-cta" data-aos="fade-up" data-aos-delay="200">
+            Get Free Consultation <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h4><i class="fas fa-hard-hat"></i> Premium Constructions</h4>
+                <p>Building dreams into reality with quality, innovation, and excellence. We are committed to delivering exceptional construction services that exceed expectations.</p>
+                <div class="social-links mt-3">
+                    <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/quote">Get Quote</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h4>Project Categories</h4>
+                <ul class="footer-links">
+                    <li><a href="/projects?category=residential">Residential</a></li>
+                    <li><a href="/projects?category=commercial">Commercial</a></li>
+                    <li><a href="/projects?category=infrastructure">Infrastructure</a></li>
+                    <li><a href="/projects?category=renovation">Renovation</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                    <li><i class="fas fa-phone"></i> +254 700 057910</li>
+                    <li><i class="fas fa-envelope"></i> josephkidenye@.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 8AM - 6PM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Premium Constructions. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light">Privacy Policy</a> |
+                    <a href="#" class="text-light">Terms of Service</a> |
+                    <a href="#" class="text-light">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('#projectsGrid > div');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            // Filter projects
+            projectItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeInUp 0.5s ease';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
